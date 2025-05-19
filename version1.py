@@ -2,16 +2,16 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 
-def interfaz_uno():
+def interfaz_inicio():
     area_dinamica_limpia()
     tk.Label(area_dinamica, text="Aquí va un mensaje de bienvenida", font=("Arial", 14)).pack(pady=10)
-    tk.Button(area_dinamica, text="Botón 1", command=lambda: messagebox.showinfo("Título", "Mensaje temporal")).pack()
+    tk.Button(area_dinamica, text="Mostrar mensaje de bienvenida", command=lambda: messagebox.showinfo("Título", "Mensaje temporal")).pack()
 
-def interfaz_dos():
+def interfaz_datos():
     area_dinamica_limpia()
     tk.Label(area_dinamica, text="Aquí coloca un letrero o label que identifique al alumno", font=("Arial", 14)).pack(pady=10)
 
-    tk.Label(area_dinamica, text="Campo A:").pack()
+    tk.Label(area_dinamica, text="Nombre del alumno:").pack()
     campo_texto_uno = tk.Entry(area_dinamica)
     campo_texto_uno.pack(pady=5)
 
@@ -31,7 +31,7 @@ def interfaz_dos():
 
     tk.Button(area_dinamica, text="Botón 2", command=accion_guardar).pack(pady=10)
 
-def interfaz_tres():
+def interfaz_color():
     area_dinamica_limpia()
     tk.Label(area_dinamica, text="Configuraciones temporales", font=("Arial", 14)).pack(pady=10)
 
@@ -46,7 +46,7 @@ def interfaz_tres():
     for c in colores:
         tk.Button(area_dinamica, text=c, bg=c, width=20, command=lambda col=c: cambiar_color(col)).pack(pady=2)
 
-def interfaz_cuatro():
+def interfaz_preguntas():
     area_dinamica_limpia()
     tk.Label(area_dinamica, text="Texto de ayuda que el alumno debe mejorar", font=("Arial", 14)).pack(pady=10)
     contenido = (
@@ -73,11 +73,12 @@ menu_lateral.pack(side="left", fill="y")
 area_dinamica = tk.Frame(ventana_principal, bg="white")
 area_dinamica.pack(side="right", expand=True, fill="both")
 
-tk.Button(menu_lateral, text="Pantalla 1", command=interfaz_uno, width=15).pack(pady=10)
-tk.Button(menu_lateral, text="Pantalla 2", command=interfaz_dos, width=15).pack(pady=10)
-tk.Button(menu_lateral, text="Pantalla 3", command=interfaz_tres, width=15).pack(pady=10)
-tk.Button(menu_lateral, text="Pantalla 4", command=interfaz_cuatro, width=15).pack(pady=10)
+tk.Button(menu_lateral, text="Inicio", command=interfaz_inicio, width=15).pack(pady=10)
+tk.Button(menu_lateral, text="Pantalla 2", command=interfaz_datos, width=15).pack(pady=10)
+tk.Button(menu_lateral, text="Pantalla 3", command=interfaz_color, width=15).pack(pady=10)
+tk.Button(menu_lateral, text="Pantalla 4", command=interfaz_preguntas, width=15).pack(pady=10)
 tk.Button(menu_lateral, text="Salir", command=ventana_principal.destroy, width=15).pack(pady=30)
 
-interfaz_uno()
+interfaz_inicio()
 ventana_principal.mainloop()
+
